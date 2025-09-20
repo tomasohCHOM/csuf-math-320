@@ -90,6 +90,47 @@ disp(A(1:3, 2:4));
 %{
 MATLAB expands arrays filling with 0s when assigning values to non-existing
 indices. Adding values to end of variables is appending/concatenating.
+- Dimensions must match, otherwise errors are thrown
 
 Can delete elements by assigning to []
+- Must also be a valid index, otherwise errors are thrown
 %}
+
+mtr = [5 78 4 24 9; 4 0 36 60 12; 56 13 5 89 3];
+mtr(:, 2:4) = [];
+disp(mtr);
+
+%% Built-in Functions for Handling Arrays
+
+%{
+length(A) -         If vector, outputs # of elements. If matrix, outputs
+                    # max of of rows or vectors
+size(A) -           1x2 vector with the number of rows & columns of A
+reshape(A, m, n) -  Changes number of rows/columns of matrix or vector
+                    while keeping # of elements the same (column-wise).
+                    Cannot change number of elements in the matrix/vector
+diag(v) -           If v is a vector, outputs a square matrix of 0s with v
+                    as the diagonal
+diag(A) -           Outputs a vector with elements the main diagonal of A
+%}
+
+%% Strings
+
+%{
+Create strings like 'This is a string' (no double quotes)
+
+Store strings of multiple lines as an array:
+- Must have same number of columns
+- char() pads each line on the right with spaces to match # of columns
+%}
+
+S1 = 'I''m cool';
+disp(length(S1));
+disp(size(S1));
+x = '312';
+disp(2 * x);
+
+% ['harry'; 'ron'; 'draco'] would cause an error
+table = char('harry', 'ron', 'draco');
+disp(table);
+disp(size(table));
