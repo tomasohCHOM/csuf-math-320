@@ -34,16 +34,16 @@ axis([-2, 4, -3, 3]);
 
 theta = linspace(0, 5 * pi, 200);
 posR = sqrt(theta); negR = -sqrt(theta);
-polarplot(theta, posR);
+polar(theta, posR);
 hold on;
-polarplot(theta, negR);
+polar(theta, negR);
 hold off;
 
 %% Chapter 5, Problem #18
 
 n = 1:100; theta = deg2rad(n * 135.7);
 r = sqrt(n);
-polarplot(theta, r, 'o');
+polar(theta, r, 'o');
 
 %% Chapter 5, Problem #21
 
@@ -61,8 +61,13 @@ legend('Data points', 'Logistic Function H', 'Location', 'SE');
 %% Chapter 5, Problem #27
 
 c = 3 * 10^8; h = 6.626 * 10^(-34); k = 1.38 * 10^(-23);
-R = @(l, T) ((2 * pi * c^2 * h) ./ l.^5) .* 1 ./ (exp(h * c ./ (l .* (k * T))) - 1);
-T1 = 3000; T2 = 4000; T3 = 5000; wavelengthBounds = [0.1, 3];
+
+% We need to convert l, which is in micrometers, to meters
+R = @(l, T) ((2 * pi * h * c^2) ./ ((l * 1e-6).^5)) .* ...
+             (1 ./ (exp((h * c) ./ ((l * 1e-6) * k * T)) - 1));
+
+T1 = 3000; T2 = 4000; T3 = 5000;
+wavelengthBounds = [0.1, 3];
 
 fplot(@(l) R(l, T1), wavelengthBounds, ':');
 hold on;
@@ -130,6 +135,11 @@ hold on;
 plot(D, Lc2);
 plot(D, Lc3);
 hold off;
+xlabel('Depth of filter (m)');
+ylabel('Effluent BOD (mg/L)');
+legend('L_{0} = 5 mg/L', 'L_{0} = 10 mg/L', 'L_{0} = 20 mg/L');
+
+% L0_1 ~= 1000m depth, L0_2 ~= 1600m depth, L0_3 > 2000m
 
 %% Chapter 5, Problem #40
 
