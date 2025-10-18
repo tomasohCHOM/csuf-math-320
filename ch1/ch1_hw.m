@@ -2,6 +2,7 @@
 % Tomas Oh
 
 close all, clear, clc, format compact
+
 %% Chapter 1, Problem #2
 
 %Part (a)
