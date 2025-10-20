@@ -94,13 +94,10 @@ cond = v(0) == 0;
 sol = dsolve(ode, cond)
 
 % Part (b)
-m = 90; g = 9.81;
-ode = m * g - c * v == m * diff(v, t);
-cond = v(4) == 28;
-sol = simplify(dsolve(ode, cond));
+solvedC = double(solve(28 == subs(sol, {m, g, t}, {90, 9.81, 4})))
 
 % Part (c)
-ezplot(sol, [0, 30]);
+ezplot(subs(sol, {m, g, c}, {90, 9.81, solvedC}), [0, 30]);
 
 %% Chapter 11, Problem #29
 
