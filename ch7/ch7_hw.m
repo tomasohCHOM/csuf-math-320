@@ -56,3 +56,47 @@ unitvec([-0.7, 2.1], [9, 18]) % Part (a)
 unitvec([10, -3.5, -2.5], [-11, 6.5, 5.9]) % Part (b)
 
 %% Chapter 7, Problem #15
+
+crosspro([3, 11], [14, -7.3]) % Part (a)
+crosspro([-6, 14.2, 3], [6.3, -8, -5.6]) % Part (b)
+
+%% Chapter 7, Problem #25
+
+[th, rad] = CartToPolar(14, 9)
+[th, rad] = CartToPolar(-11, -20)
+[th, rad] = CartToPolar(-15, 4)
+[th, rad] = CartToPolar(13.5, -23.5)
+
+%% Chapter 7, Problem #30
+
+det3by3([1, 3, 2; 6, 5, 4; 7, 8, 9]) % Part (a)
+det3by3([-2.5, 7, 1; 5, -3, -2.6; 4, 2, -1]) % Part (b)
+
+%% Chapter 7, Problem #32
+
+DeltaRos(42, 970, 340) % Part (a)
+DeltaRos(110, 80, -60) % Part (b)
+
+%% Chapter 7, Problem #34
+
+format long;
+x = [39, 205, -70, 754, 19000, -748]; % Parts (a) - (f)
+for i = 1:length(x)
+    sinTay(x(i)), sind(x(i))
+    sinTay(x(i)) - sind(x(i))
+end
+
+%% Chapter 7, Problem #40
+
+format long;
+
+ProbLottery(4, 6, 49) % Part (a)
+
+% Part (b)
+
+table = zeros(7, 2);
+for m = 0:6
+    table(m + 1, 1) = m;
+    table(m + 1, 2) = ProbLottery(m, 6, 49);
+end
+table
