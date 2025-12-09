@@ -121,7 +121,7 @@ One-dimensional linear interpolation in MATLAB:
 - yi = interp1(x, y, xi, 'method'); (x must be monotonic)
 - xi is the horizontal coordinate of the interpolation point: scalar/vector
 - yi is a scalar or vector with the corresponding interpolated values
-- methods: 'nearest', 'linear', 'spline', 'pchip' (or 'cubic)
+- methods: 'nearest', 'linear', 'spline', 'pchip' (or 'cubic')
 %}
 
 x = [1, 2, 6, 8, 9]; y = [3, 8, 1, 2, 3];
